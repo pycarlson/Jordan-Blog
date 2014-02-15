@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	http_basic_authenticate_with :name => "Jlove", :password => "sexyass"
+	http_basic_authenticate_with :name => "jlove", :password => "sexyass"
 	
 	def index
 		@posts = Post.all
