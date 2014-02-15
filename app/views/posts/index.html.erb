@@ -1,0 +1,11 @@
+<div class="innerContainer"> 
+  <% @posts.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+
+  
+  <%= (truncate(post.body, length: 300)) %><%= link_to ' read more', post_path(post) %><br><br>
+
+  Read the <%= link_to "#{post.comments.length} comments", post_path(post) %>
+  <br><br>
+  <% end %>
+</div>

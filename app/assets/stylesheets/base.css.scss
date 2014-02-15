@@ -1,0 +1,28 @@
+body {
+  font-family: ariel, sans-serif;
+  padding-bottom: 100px;
+  li {
+    list-style: none;
+  }
+} 
+
+#comment_form {
+  display: none;
+}
+
+.cat_list {
+  padding-left: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.cat_list li {
+  float: left;
+  margin-right: 20px;
+}
+
+.grav_image {
+  float: right;
+  width: 60px;
+  height: 60px;
+}

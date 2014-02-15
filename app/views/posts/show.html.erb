@@ -1,0 +1,41 @@
+<div class="innerContainer"> 
+  <%= render :partial => @post %>
+  
+  <a id="new_comment_link" href="">Add a Comment </a>
+  <br><br>
+
+<div id="comment_form">
+<%= render '/comments/form' %>
+</div>
+  
+
+ <div id="comments">
+   <% if @post.comments.length > 0 %>
+   <% @post.comments.each do |comment| %>
+   <%= comment.body %>
+   <br>
+   <% end %>
+   <% end %>
+ </div>
+
+
+
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#comment_form').hide();
+    $('#new_comment_link').on('click', function(e){
+      e.preventDefault();
+      $('#comment_body').val("");
+      $('#new_comment_link').hide();
+      $('#comment_form').slideToggle();
+    });
+    $('#add_comment_form_button').on('click', function(){
+
+      $('#comment_form').slideToggle();
+      $('#new_comment_link').show();
+    })
+  });
+</script>

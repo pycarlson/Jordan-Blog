@@ -1,0 +1,17 @@
+<div class="innerContainer"> 
+ <%= form_for [@post] do |f| %>
+ <%= f.label :title %><br>
+ <%= f.text_field :title, :style => "width: 1170px"  %><br><br>
+ <%= f.label :body %>
+ <%= f.text_area :body, :style => "width: 1170px; height: 300px" %><br><br>
+ 
+ <% for category in Category.find(:all) %>
+<div>
+  <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
+  <%= category.name %>
+</div>
+ <% end %>
+ <br>
+ <%= f.submit "Update Post" %>
+<% end %>
+</div>
