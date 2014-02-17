@@ -2,10 +2,10 @@ class PostsController < ApplicationController
 	http_basic_authenticate_with :name => "jlove", :password => "sexyass"
 	
 	def index
-		@posts = Post.all
-		
+		@posts = Post.all[0...-1].reverse
+		@latest_post = Post.last
 		respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @posts }
       format.atom
     end

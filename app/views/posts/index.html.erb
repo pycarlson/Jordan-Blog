@@ -1,11 +1,32 @@
 <div class="innerContainer"> 
-  <% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
+
+  <div class="col-xs-12" id="head-title">
+    <h1>JORDAN LUFTIG</h1>
+    <h4>WRITING ABOUT STUFF THAT ACTUALY MATTERS</h4>
+  </div>
+
+  <div id="lastest-post">
+    <h1><%= link_to @latest_post.title, post_path(@latest_post) %></h1>
+    <%= (truncate(@latest_post.body, length: 500)) %><%= link_to ' read more', post_path(@latest_post) %><br><br>
+
+      Read the <%= link_to "#{@latest_post.comments.length} comments", post_path(@latest_post) %>
+      <br><br>
+  </dv>
+
+
+
+    <% @posts.each do |post| %>
+  
+  <div class="post col-sm-4">
+      <h2><%= link_to post.title, post_path(post) %></h2>
+
+      <%= (truncate(post.body, length: 300)) %><%= link_to ' read more', post_path(post) %><br><br>
+
+      Read the <%= link_to "#{post.comments.length} comments", post_path(post) %>
+      <br><br>
+</div>
 
   
-  <%= (truncate(post.body, length: 300)) %><%= link_to ' read more', post_path(post) %><br><br>
+      <% end %>
 
-  Read the <%= link_to "#{post.comments.length} comments", post_path(post) %>
-  <br><br>
-  <% end %>
 </div>
