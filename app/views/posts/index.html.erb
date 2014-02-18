@@ -1,5 +1,8 @@
 <div class="inner-container home"> 
+
+
   <div class="row featurette">
+
     <div class="col-md-2">
       <p class="date"><%= @latest_post.created_at.strftime("%d %b. %Y")%></p>
       <hr>
@@ -15,17 +18,20 @@
         <p><%= link_to "#{@latest_post.comments.length} comment", post_path(@latest_post) %></p>
         <% end %>
       </div>
+
       <div class="col-md-7">
         <h1 class="featurette-heading"><%= link_to @latest_post.title, post_path(@latest_post) %> <br><span class="text-muted">Awesome catch phrase goes here.</span></h1>
         <p class="lead"><%= (truncate(@latest_post.body, length: 500)) %><%= link_to ' read more', post_path(@latest_post) %></p>
       </div>
+
       <div class="col-md-3 home-image">
         <img class="featurette-image img-responsive" src="http://www.wired.com/images_blogs/design/2013/07/venus-of-google-wallpaper-image_800.jpg" alt="Generic placeholder image">
       </div>
+
     </div>
 
     <hr class="featurette-divider">
-    
+    <div class="row">
     <div class="col-md-8 posts">
       <% @posts.each do |post| %>
 
@@ -50,10 +56,8 @@
 
       </div>
 
-      <div class="col-md-4 other-stuff">
-
+     <div class="col-md-4 other-stuff">
+        <h2>Top 10 Most Liked Posts</h2>
       </div>
-
-
-    </div>
+  </div>
   </div>
