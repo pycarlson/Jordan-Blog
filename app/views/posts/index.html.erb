@@ -35,7 +35,7 @@
     <div class="col-md-8 posts">
       <% @posts.each do |post| %>
 
-      <div class="post col-xs-6">
+      <div class="post col-md-6">
         <h2><%= link_to post.title, post_path(post) %></h2>
         <p class="date"><%= post.created_at.strftime("%d %b. %Y")%></p>
         <%= (truncate(post.body, length: 160)) %><%= link_to ' read more', post_path(post) %><br><br>
