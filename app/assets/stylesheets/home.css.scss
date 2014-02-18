@@ -2,11 +2,65 @@
   h1 {
     padding-top: 0;
     margin-top: 0;
+    color: #455B67;
+    span {
+      color: #6E7983;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
   }
   p {
     font-size: 16px;
   }
   .home-image {
     overflow: hidden;
+  }
+
+  
+}
+
+.home h1 a, .home h2 a {
+  color: #455B67;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+
+.post {
+  padding-left: 0;
+  height: 260px;
+
+}
+
+p.date {
+  color: #E0451A;
+  font-size: 16px;
+}
+
+p.categories {
+  font-style: italic;
+  font-size: 14px;
+  margin: 0;
+}
+.other-stuff {
+  height: 400px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.posts {
+  padding: 0;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
   }
 }
