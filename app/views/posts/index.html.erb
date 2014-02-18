@@ -1,32 +1,40 @@
-<div class="innerContainer"> 
+<div class="inner-container home"> 
+  
+  <div class="row featurette">
+    <div class="col-md-2">
+      <%= @latest_post.created_at.strftime("%d %b. %Y") %>
+      <hr>
+      <% @latest_post.categories.each do |cat| %>
+        <%= link_to cat.name, categories_path(cat) %>
+      <% end %>
+      <hr>
+      <p><%= link_to "#{@latest_post.comments.length} comments", post_path(@latest_post) %></p>
+    </div>
+    <div class="col-md-7">
+      <h1 class="featurette-heading"><%= link_to @latest_post.title, post_path(@latest_post) %> <br><span class="text-muted">Awesome catch phrase goes here.</span></h1>
+      <p class="lead"><%= (truncate(@latest_post.body, length: 500)) %><%= link_to ' read more', post_path(@latest_post) %></p>
+      </div>
+      <div class="col-md-3 home-image">
+        <img class="featurette-image img-responsive" src="http://www.wired.com/images_blogs/design/2013/07/venus-of-google-wallpaper-image_800.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
 
-  <div class="col-xs-12" id="head-title">
-    <h1>JORDAN LUFTIG</h1>
-    <h4>WRITING ABOUT STUFF THAT ACTUALY MATTERS</h4>
-  </div>
-
-  <div id="lastest-post">
-    <h1><%= link_to @latest_post.title, post_path(@latest_post) %></h1>
-    <%= (truncate(@latest_post.body, length: 500)) %><%= link_to ' read more', post_path(@latest_post) %><br><br>
-
-      Read the <%= link_to "#{@latest_post.comments.length} comments", post_path(@latest_post) %>
-      <br><br>
-  </dv>
+    <hr class="featurette-divider">
 
 
 
-    <% @posts.each do |post| %>
+  <% @posts.each do |post| %>
   
   <div class="post col-sm-4">
-      <h2><%= link_to post.title, post_path(post) %></h2>
+    <h2><%= link_to post.title, post_path(post) %></h2>
 
-      <%= (truncate(post.body, length: 300)) %><%= link_to ' read more', post_path(post) %><br><br>
+    <%= (truncate(post.body, length: 300)) %><%= link_to ' read more', post_path(post) %><br><br>
 
-      Read the <%= link_to "#{post.comments.length} comments", post_path(post) %>
-      <br><br>
-</div>
+    Read the <%= link_to "#{post.comments.length} comments", post_path(post) %>
+    <br><br>
+  </div>
 
   
-      <% end %>
+  <% end %>
 
 </div>

@@ -10,14 +10,28 @@
 </head>
 <body>
   <%= render 'shared/navBar' %>
+  <div class="col-xs-12" id="head-title">
+    <h1>JORDAN LUFTIG</h1>
+    <h4>WRITING ABOUT STUFF THAT ACTUALY MATTERS</h4>
+  </div>
   <div class="container">
-
-   
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-   
-   <%= yield %>
- </div>
+    <% if flash[:notice] %>
+    <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+    <% if flash[:error] %>
+    <ul>
+      <div class="alert"><% flash[:error].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </div>
+    </ul>
+    <% end %>
+    
+    <%= yield %>
+  </div>
 
 </body>
 </html>
