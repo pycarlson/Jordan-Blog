@@ -29,7 +29,7 @@ body {
     }
   }
   .inner-container {
-    
+
   }
 } 
 
@@ -43,9 +43,25 @@ body {
   margin-bottom: 10px;
 }
 
-.cat_list li {
-  float: left;
-  margin-right: 20px;
+ul.categories {
+  
+  margin-top: 20px;
+ 
+  max-width: 1140px;
+  li {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+.btn {
+  background-color: #5ABE5B;
+  border: none;
+  
+  margin-top: 20px;
+
 }
 
 .grav_image {

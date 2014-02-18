@@ -1,17 +1,23 @@
 <div class="innerContainer"> 
- <%= form_for [@post] do |f| %>
- <%= f.label :title %><br>
- <%= f.text_field :title, :style => "width: 1170px"  %><br><br>
- <%= f.label :body %>
- <%= f.text_area :body, :style => "width: 1170px; height: 300px" %><br><br>
- 
- <% for category in Category.find(:all) %>
-<div>
-  <%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
-  <%= category.name %>
-</div>
- <% end %>
- <br>
- <%= f.submit "Add Post" %>
-<% end %>
+  <div class="col-md-12">
+    <%= form_for @post, :html => {:class => "form"} do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control"  %><br><br>
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control",:style => "min-height: 300px"  %>
+  </div>
+  
+  <ul class="col-md-12 categories">
+   <% for category in Category.find(:all) %>
+      <li><%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
+      <%= category.name %></li>
+    <% end %>
+  </ul>
+
+  <div class="col-md-12 form-button">
+    <%= f.submit "Add Post", class: "btn btn-primary" %>
+  </div>
+
+  <% end %>
+
 </div>

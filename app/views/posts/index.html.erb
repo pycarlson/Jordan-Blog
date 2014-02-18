@@ -3,8 +3,12 @@
   <div class="row featurette">
 
     <div class="col-md-8">
-      <h1 class="featurette-heading"><%= link_to @latest_post.title, post_path(@latest_post) %> <br><span class="text-muted">Awesome catch phrase goes here.</span></h1>
-      <p class="lead"><%= (truncate(@latest_post.body, length: 500)) %><%= link_to ' read more', post_path(@latest_post) %></p>
+      <div class="popbox">
+        <div>
+          <h1 class="featurette-heading"><%= link_to @latest_post.title, post_path(@latest_post) %> <br><span class="text-muted">Awesome catch phrase goes here.</span></h1>
+        </div>
+      </div>
+      <p class="lead"><%= (truncate(@latest_post.body, length: 500)) %><br><%= link_to 'read more', post_path(@latest_post), class: "form-button btn btn-primary" %></p>
     </div>
 
     <div class="col-md-4 home-image">
@@ -22,47 +26,47 @@
 
       <ul class="col-md-9">
         <% @latest_post.categories.each do |cat| %>
-          <li><p class="categories"><%= link_to cat.name, categories_path(cat) %></p><li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
-<hr class="featurette-divider">
-<div class="row">
-  <div class="col-md-8 posts">
-    <% @posts.each do |post| %>
-
-    <div class="post col-md-11">
-      <div class="post-inner">
-        <h2><%= link_to post.title, post_path(post) %></h2>
-        <p class="date"><%= post.created_at.strftime("%d %b. %Y")%></p>
-        <%= (truncate(post.body, length: 160)) %><%= link_to ' read more', post_path(post) %><br><br>
-      </div>
-
-      <div class="post-details">
-        <div class="col-md-3">
-          <% if post.comments.length > 1 %> 
-          <p><%= link_to "#{post.comments.length} comments ", post_path(post) %></p>
-          <% else %>
-          <p><%= link_to "#{post.comments.length} comment ", post_path(@latest_post) %></p>
+        <li><p class="categories"><%= link_to cat.name, categories_path(cat) %></p><li>
           <% end %>
-        </div>
-
-        <ul class="col-md-9">
-          <% post.categories.each do |cat| %>
-          <li><p class="categories"><%= link_to cat.name, categories_path(cat) %></p><li>
-            <% end %>
-          </ul>
-        </div>
+        </ul>
       </div>
-      <% end %>
     </div>
 
-    <div class="col-md-4 other-stuff">
-      <h2>Top 10 Most Liked Posts</h2>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row">
+    <div class="col-md-8 posts">
+      <% @posts.each do |post| %>
+
+      <div class="post col-md-11">
+        <div class="post-inner">
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p class="date"><%= post.created_at.strftime("%d %b. %Y")%></p>
+          <%= (truncate(post.body, length: 160)) %><br><%= link_to ' read more', post_path(post), class: "form-button btn btn-primary" %>
+        </div>
+
+        <div class="post-details">
+          <div class="col-md-3">
+            <% if post.comments.length > 1 %> 
+            <p><%= link_to "#{post.comments.length} comments ", post_path(post) %></p>
+            <% else %>
+            <p><%= link_to "#{post.comments.length} comment ", post_path(@latest_post) %></p>
+            <% end %>
+          </div>
+
+          <ul class="col-md-9">
+            <% post.categories.each do |cat| %>
+            <li><p class="categories"><%= link_to cat.name, categories_path(cat) %></p><li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 other-stuff">
+        <h2>Top 10 Most Liked Posts</h2>
+      </div>
     </div>
   </div>
-</div>
